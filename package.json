@@ -1,0 +1,27 @@
+{
+  "name": "polyfill-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cjs/index.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "declarations": "node ./scripts/declarations.mjs",
+    "format": "prettier --write .",
+    "lint": "eslint --max-warnings 0 .",
+    "rmdir": "node ./scripts/rmdir.mjs",
+    "ts-declaration": "tsc --emitDeclarationOnly --outDir dist/types",
+    "build": "npm run rmdir && mkdir -p dist && node ./scripts/esbuild.mjs && npm run ts-declaration"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@types/node": "^18.14.6",
+    "esbuild": "^0.17.11",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@dfinity/identity": "^0.15.4"
+  }
+}
